@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import './assets/scss/main.css'
 import Randomizer from './components/Randomizer'
 
 function App() {
 	const [randomAnime, SetRandomAnime] = useState([])
 
+	/* we fetch a random anime from Jikan's API.
+	   tbh I mostly stole this from a YouTube tutorial so idk how it works */
 	const GetRandomAnime = async () => {
 		const temp = await fetch(`https://api.jikan.moe/v4/random/anime`)
 		.then(res => res.json());
@@ -19,12 +20,12 @@ function App() {
 
 	return (
 		<div className="App">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 			<div>
 				<Randomizer
 					randomAnime={randomAnime} />
 			</div>
 			<div>
+				{/* click the button and fetch a new random anime */}
 				<button onClick={GetRandomAnime}>Random</button>
 			</div>
 		</div>

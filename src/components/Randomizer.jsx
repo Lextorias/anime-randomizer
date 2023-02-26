@@ -1,5 +1,8 @@
 import React from 'react'
+// this is our placeholder thumbnail image
+import missingCover from '../assets/files/missing_cover.jpg'
 
+/* tries to return thumbnail from API, else returns placeholder */
 function displayImage(anime) {
     try {
         return anime.randomAnime.images.jpg.image_url;
@@ -8,10 +11,10 @@ function displayImage(anime) {
     try {
         return anime.randomAnime.images.webp.image_url;
     } catch (error) {null}
-
-    return './src/assets/files/missing_cover.jpg'
+    return missingCover 
 }
 
+/* tries to return genres from API, else returns blank */
 function displayGenre(anime) {
     var genreList = ''
     try {
@@ -25,16 +28,18 @@ function displayGenre(anime) {
 
     return ''
 }
-
+/* tries to truncate synopsis from API. If synopsis is null, returns blank */
 function displaySynopsis(anime) {
     try {
-        if (anime.randomAnime.synopsis.length <= 2000) {return anime.randomAnime.synopsis}
-        else return anime.randomAnime.synopsis.slice(0, 2000) + '...'
+        //can change truncation length by changing '> 0' to '>= num' and change slice to same num
+        if (anime.randomAnime.synopsis.length > 0) {return anime.randomAnime.synopsis}
+        else return anime.randomAnime.synopsis.slice(0, 1) + '...'
     } catch (error) {null}
 
     return ''
 }
 
+/* tries to build aired date string from API. Else returns blank */
 function displayAired(anime) {
     var airDate = ''
     var months = [ "January", "February", "March", "April", "May", "June", 
@@ -43,6 +48,7 @@ function displayAired(anime) {
         airDate += months[anime.randomAnime.aired.prop.from.month-1]
         airDate += ' ' + anime.randomAnime.aired.prop.from.day
         airDate += ', ' + anime.randomAnime.aired.prop.from.year
+        //can add status ('Finished Airing', etc.)
         //airDate += ' (' + anime.randomAnime.status + ')'
         if (anime.randomAnime.aired.prop.from.month != null)
             return airDate
@@ -51,11 +57,12 @@ function displayAired(anime) {
 
     return ''
 }
-
+/* main function that displays random anime information */
 function Randomizer({ randomAnime }) {
   return (
     <main>
         <div>
+            {/* header for title of anime, which is clickable link */}
             <h1>
                 <a
                     href={randomAnime.url}
@@ -64,11 +71,16 @@ function Randomizer({ randomAnime }) {
                     <strong>{ randomAnime.title }</strong>
                 </a>
             </h1>
+            {/* subtitle for english anime title */}
             <h2>
                 { randomAnime.title_english }
             </h2>
+            {/* anime info list */}
             <ul className="stats">
-                <img src= { displayImage({ randomAnime }) }></img>
+                <li>
+                    {/* we call displayImage to get the anime's thumbnail */}
+                    <img src= { displayImage({ randomAnime }) } alt="anime thumbnail"></img>
+                </li>
                 <li><strong>Type: </strong>{ randomAnime.type }</li>
                 <li><strong>Aired: </strong>{ displayAired({ randomAnime }) }</li>
                 <li><strong>Episodes: </strong>{ randomAnime.episodes } ({ randomAnime.duration })</li>
