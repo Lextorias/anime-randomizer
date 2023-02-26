@@ -28,8 +28,8 @@ function displayGenre(anime) {
 
 function displaySynopsis(anime) {
     try {
-        if (anime.randomAnime.synopsis.length <= 900) {return anime.randomAnime.synopsis}
-        else return anime.randomAnime.synopsis.slice(0, 900) + '...'
+        if (anime.randomAnime.synopsis.length <= 2000) {return anime.randomAnime.synopsis}
+        else return anime.randomAnime.synopsis.slice(0, 2000) + '...'
     } catch (error) {null}
 
     return ''
@@ -55,31 +55,28 @@ function displayAired(anime) {
 function Randomizer({ randomAnime }) {
   return (
     <main>
-        <div className="main-head">
-            <div className="img">
-            </div>
+        <div>
             <h1>
                 <a
                     href={randomAnime.url}
                     target="_blank"
                     rel="noreferrer">
-                    { randomAnime.title }
+                    <strong>{ randomAnime.title }</strong>
                 </a>
             </h1>
+            <h2>
+                { randomAnime.title_english }
+            </h2>
             <ul className="stats">
-            <img src=
-                    { displayImage({ randomAnime }) }>
-            </img>
-            <li><strong>Also Known As: </strong>{ randomAnime.title_english }</li>
-            <li><strong>Type: </strong>{ randomAnime.type }</li>
-            <li><strong>Aired: </strong>{ displayAired({ randomAnime }) }</li>
-            <li><strong>Episodes: </strong>{ randomAnime.episodes }</li>
-            <li><strong>Duration: </strong>{ randomAnime.duration }</li>
-            <li><strong>Score: </strong>{ randomAnime.score }</li>
-            <li><strong>Rank/Popularity: </strong>{ randomAnime.rank } / { randomAnime.popularity }</li>
-            <li><strong>Rating: </strong>{ randomAnime.rating }</li>
-            <li><strong>Genre: </strong>{ displayGenre({ randomAnime }) }</li>
-            <li><strong>Synopsis: </strong>{ displaySynopsis({ randomAnime }) }</li>
+                <img src= { displayImage({ randomAnime }) }></img>
+                <li><strong>Type: </strong>{ randomAnime.type }</li>
+                <li><strong>Aired: </strong>{ displayAired({ randomAnime }) }</li>
+                <li><strong>Episodes: </strong>{ randomAnime.episodes } ({ randomAnime.duration })</li>
+                <li><strong>Score: </strong>{ randomAnime.score }</li>
+                <li><strong>Rank/Popularity: </strong>{ randomAnime.rank } / { randomAnime.popularity }</li>
+                <li><strong>Rating: </strong>{ randomAnime.rating }</li>
+                <li><strong>Genre: </strong>{ displayGenre({ randomAnime }) }</li>
+                <li><strong>Synopsis: </strong>{ displaySynopsis({ randomAnime }) }</li>
             </ul>
         </div>
     </main>
