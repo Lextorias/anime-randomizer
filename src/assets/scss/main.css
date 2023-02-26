@@ -83,6 +83,9 @@ strong {
 }
 /* 800px breakpoint. downscale fonts and resize image */
 @media (max-width: 800px) {
+  button {
+    font-size: 12vw;
+  }
   main {
     padding-bottom: 30%;
   }
@@ -102,6 +105,9 @@ strong {
 }
 /* 600px breakpoint. downscale and resize more  */
 @media (max-width: 600px) {
+  button {
+    font-size: 15vw;
+  }
   main {
     padding-bottom: 40%;
   }
@@ -121,6 +127,9 @@ strong {
 }
 /* 450px breakpoint. downscale and resize for peasants with small screens */
 @media (max-width: 450px) {
+  button {
+    font-size: 20vw;
+  }
   main {
     padding-bottom: 60%;
   }
@@ -142,9 +151,6 @@ strong {
 @media (max-width: 380px) {
   main {
     padding-bottom: 80%;
-  }
-  button {
-    font-size: 20vw;
   }
   h1 {
     font-size: 200%;
