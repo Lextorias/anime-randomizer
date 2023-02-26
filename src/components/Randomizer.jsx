@@ -35,6 +35,23 @@ function displaySynopsis(anime) {
     return ''
 }
 
+function displayAired(anime) {
+    var airDate = ''
+    var months = [ "January", "February", "March", "April", "May", "June", 
+           "July", "August", "September", "October", "November", "December" ];
+    try {
+        airDate += months[anime.randomAnime.aired.prop.from.month-1]
+        airDate += ' ' + anime.randomAnime.aired.prop.from.day
+        airDate += ', ' + anime.randomAnime.aired.prop.from.year
+        //airDate += ' (' + anime.randomAnime.status + ')'
+        if (anime.randomAnime.aired.prop.from.month != null)
+            return airDate
+        return ''
+    } catch (error) {null}
+
+    return ''
+}
+
 function Randomizer({ randomAnime }) {
   return (
     <main>
@@ -55,11 +72,11 @@ function Randomizer({ randomAnime }) {
             </img>
             <li><strong>Also Known As: </strong>{ randomAnime.title_english }</li>
             <li><strong>Type: </strong>{ randomAnime.type }</li>
+            <li><strong>Aired: </strong>{ displayAired({ randomAnime }) }</li>
             <li><strong>Episodes: </strong>{ randomAnime.episodes }</li>
             <li><strong>Duration: </strong>{ randomAnime.duration }</li>
             <li><strong>Score: </strong>{ randomAnime.score }</li>
-            <li><strong>Ranked: </strong>{ randomAnime.rank }</li>
-            <li><strong>Popularity: </strong>{ randomAnime.popularity }</li>
+            <li><strong>Rank/Popularity: </strong>{ randomAnime.rank } / { randomAnime.popularity }</li>
             <li><strong>Rating: </strong>{ randomAnime.rating }</li>
             <li><strong>Genre: </strong>{ displayGenre({ randomAnime }) }</li>
             <li><strong>Synopsis: </strong>{ displaySynopsis({ randomAnime }) }</li>
