@@ -48,24 +48,6 @@ h2 {
     text-align: center;
 }
 
-/* container for anime image and list of info */
-.stats {
-    margin-top: 10px;
-}
-
-/* anime thumbnail */
-img {
-    //display inline so it fits on the left
-    display: inline;
-    float: left;
-    //change height with viewport
-    height: 30vw;
-    //smush if too wide
-    max-width: 30%;
-    border-radius: 25px;
-    margin-right: 2%;
-}
-
 /* list of anime information */
 li {
     list-style: none;
@@ -79,11 +61,57 @@ strong {
     color: rgb(248, 240, 130);
 }
 
+/* container for anime image and list of info */
+.stats {
+    margin-top: 10px;
+}
+
+/* anime thumbnail */
+.thumbnail {
+    //display inline so it fits on the left
+    display: inline;
+    float: left;
+    //change height with viewport
+    height: 30vw;
+    //smush if too wide
+    max-width: 30%;
+    border-radius: 25px;
+    margin-right: 2%;
+}
+
+/* home title */
+.home {
+    font-size: 200%;
+}
+
+/* get rid of bottom padding for loading gif */
+.loading-main {
+    padding-bottom: 0;
+}
+
+/* loading screen gif */
+.loading-screen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5%;
+    width: 35%;
+}
+
 /* 1280px breakpoint */
 @media (max-width: 1280px) {
     main {
         // a little padding so button doesn't block text. all breakpoints add more
         padding-bottom: 20%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2.5%;
+        width: 50%;
     }
 
     
@@ -115,6 +143,15 @@ strong {
     li {
         font-size: 150%;
     }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15%;
+        width: 60%;
+    }
 }
 
 /* 600px breakpoint. downscale and resize more  */
@@ -144,6 +181,15 @@ strong {
     li {
         font-size: 150%;
     }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25%;
+        width: 70%;
+    }
 }
 
 /* 450px breakpoint. downscale and resize for peasants with small screens */
@@ -171,6 +217,15 @@ strong {
 
     li {
         font-size: 125%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40%;
+        width: 80%;
     }
 }
 

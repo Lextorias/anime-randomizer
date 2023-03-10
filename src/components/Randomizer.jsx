@@ -63,7 +63,7 @@ function Randomizer({ randomAnime }) {
     <main>
         <div>
             {/* header for title of anime, which is clickable link */}
-            <h1>
+            <h1 className="title">
                 <a
                     href={randomAnime.url}
                     target="_blank"
@@ -79,7 +79,7 @@ function Randomizer({ randomAnime }) {
             <ul className="stats">
                 <li>
                     {/* we call displayImage to get the anime's thumbnail */}
-                    <img src= { displayImage({ randomAnime }) } alt="anime thumbnail"></img>
+                    <img className="thumbnail" src= { displayImage({ randomAnime }) } alt="anime thumbnail"></img>
                 </li>
                 <li><strong>Type: </strong>{ randomAnime.type }</li>
                 <li><strong>Aired: </strong>{ displayAired({ randomAnime }) }</li>
