@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    background-color: #202020;
+    text-decoration: none;
+    color: white;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', 'Chalkboard SE', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
+}
+
+/* main webpage. centered and wide */
+main {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    //bottom padding so the button doesn't obscure text on screen when overflowing
+    padding-bottom: 15%;
+}
+
+/* button. fixed position floating */
+button {
+    position: fixed;
+    left: 3%;
+    bottom: 4%;
+    width: 94%;
+    height: 15%;
+    color: white;
+    border-radius: 25px;
+    font-size: 600%;
+    cursor: pointer;
+    background-color: #7e55be;
+    box-shadow: 0 15px 0 #3b165e;
+}
+
+/* anime title. big and yellow */
+h1 {
+    width: 98%;
+    font-size: 350%;
+    text-align: center;
+    color: rgb(250, 250, 111);
+}
+
+/* anime subtitle. big-ish and white */
+h2 {
+    width: 98%;
+    font-size: 250%;
+    text-align: center;
+}
+
+/* list of anime information */
+li {
+    list-style: none;
+    margin-right: 3%;
+    margin-left: 3%;
+    font-size: 180%;
+}
+
+/* highlighted words like title */
+strong {
+    color: rgb(248, 240, 130);
+}
+
+/* container for anime image and list of info */
+.stats {
+    margin-top: 10px;
+}
+
+/* anime thumbnail */
+.thumbnail {
+    //display inline so it fits on the left
+    display: inline;
+    float: left;
+    //change height with viewport
+    height: 30vw;
+    //smush if too wide
+    max-width: 30%;
+    border-radius: 25px;
+    margin-right: 2%;
+}
+
+/* home title */
+.home {
+    font-size: 200%;
+}
+
+/* get rid of bottom padding for loading gif */
+.loading-main {
+    padding-bottom: 0;
+}
+
+/* loading screen gif */
+.loading-screen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5%;
+    width: 35%;
+}
+
+/* 1280px breakpoint */
+@media (max-width: 1280px) {
+    main {
+        // a little padding so button doesn't block text. all breakpoints add more
+        padding-bottom: 20%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2.5%;
+        width: 50%;
+    }
+
+    
+}
+
+/* 800px breakpoint. downscale fonts and resize image */
+@media (max-width: 800px) {
+    button {
+        //rescale button font with width
+        font-size: 12vw;
+    }
+    main {
+        padding-bottom: 30%;
+    }
+
+    h1 {
+        font-size: 250%;
+    }
+
+    h2 {
+        font-size: 200%;
+    }
+
+    img {
+      width: 40%;
+      border-radius: 20px;
+    }
+
+    li {
+        font-size: 150%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15%;
+        width: 60%;
+    }
+}
+
+/* 600px breakpoint. downscale and resize more  */
+@media (max-width: 600px) {
+    button {
+        //rescale button font with width
+        font-size: 15vw;
+    }
+    main {
+        // a little padding so button doesn't block text
+        padding-bottom: 40%;
+    }
+    
+    h1 {
+        font-size: 200%;
+    }
+
+    h2 {
+        font-size: 150%;
+    }
+
+    img {
+      width: 20%;
+      border-radius: 12px;
+    }
+
+    li {
+        font-size: 150%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25%;
+        width: 70%;
+    }
+}
+
+/* 450px breakpoint. downscale and resize for peasants with small screens */
+@media (max-width: 450px) {
+    button {
+        //rescale button font with width
+        font-size: 20vw;
+    }
+    main {
+        padding-bottom: 60%;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+    h2 {
+        font-size: 150%;
+    }
+
+    img {
+      width: 20%;
+      border-radius: 12px;
+    }
+
+    li {
+        font-size: 125%;
+    }
+
+    //scale up the loading gif
+    .loading-screen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40%;
+        width: 80%;
+    }
+}
+
+/* 380px breakpoint. downscale for people viewing on a smart watch or something idk */
+@media (max-width: 380px) {
+    main {
+        padding-bottom: 80%;
+    }
+    
+    h1 {
+        font-size: 200%;
+    }
+
+    h2 {
+        font-size: 150%;
+    }
+
+    img {
+      width: 20%;
+      border-radius: 12px;
+    }
+
+    li {
+        font-size: 125%;
+    }
+}
